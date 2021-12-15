@@ -1,0 +1,77 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the nmai branch
+  push:
+    branches: [ nmai ]
+  pull_request:
+    branches: [ nmai ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+- name: Export Fortify vulnerability data
+  # You may pin to the exact commit or the version.
+  # uses: fortify/gha-export-vulnerabilities@aa32484fd4a17f6df80e92ef6cc68b61ab7f5a92
+  uses: fortify/gha-export-vulnerabilities@v1.0.0
+  with:
+    # SSC Base URL (e.g. https://my.ssc.host/ssc)
+    ssc_base_url: # optional
+    # SSC CI authentication token
+    ssc_auth_token: # optional
+    # SSC user name
+    ssc_user: # optional
+    # SSC password
+    ssc_password: # optional
+    # SSC application version id from which to download SAST vulnerabilities
+    ssc_version_id: # optional
+    # SSC <application name>:<version name> from which to download SAST vulnerabilities
+    ssc_version_name: # optional
+    # SSC filter set id from which to download SAST vulnerabilities
+    ssc_vuln_filter_set_id: # optional
+    # FoD Base URL (e.g. https://ams.fortify.com)
+    fod_base_url: # optional
+    # FoD User Name
+    fod_user: # optional
+    # FoD Password or Access Token
+    fod_password: # optional
+    # FoD Tenant
+    fod_tenant: # optional
+    # FoD Client Id
+    fod_client_id: # optional
+    # FoD Client Secret
+    fod_client_secret: # optional
+    # FoD Release ID from which to download SAST vulnerabilities
+    fod_release_id: # optional
+    # FoD <application name>:<release name> from which to download SAST vulnerabilities
+    fod_release_name: # optional
+    # The system/format to export to, used to determine the FortifyVulnerabilityExporter configuration file to use
+    export_target: # optional, default is GitHub
+    # FortifyVulnerabilityExporter configuration file to use, by default determined from source system (SSC or FoD) and the `to` input parameter
+    export_config: # optional
+    # Directory where output files will be stored, defaults to GitHub workspace directory
+    export_dir: # optional, default is ${GITHUB_WORKSPACE}
