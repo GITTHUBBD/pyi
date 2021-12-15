@@ -6,16 +6,21 @@
     # Text to encode.
     text: 
     # Path where to save the file.
-Recognized extensions are png, svg, txt.
+    # Recognized extensions are 
+    txt: 
     path: # default is qrcode.png
     - name: S3 Copy to specific destination
   # You may pin to the exact commit or the version.
   # uses: luke-m/s3-cp-action@4f84902f8a893fd30c67b25e9393c7bb9d3e0d91
-  uses: luke-m/s3-cp-action@v0.3.0
-  - name: Notify PR
+    uses: luke-m/s3-cp-action@v0.3.0
+  # name: Notify PR
   # You may pin to the exact commit or the version.
   # uses: okteto/notify-pr@1372ddd587e781f2f995b1f612221f039cfedc50
-  uses: okteto/notify-pr@v1.0
-  with:
-    # The message
-    message: # default is Your preview environment is ready
+  'uses: okteto/notify-pr@v1.0 with: #  Log4Shell
+
+  # Text to encode.  
+  
+ message: 
+  0 | 213 | #02932 
+  c.MESSAGE: 'Log4Shell'
+  path: default is Your preview environment is ready 
